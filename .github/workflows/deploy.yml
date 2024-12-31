@@ -20,17 +20,17 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
         with:
-          working-directory: './SecureSnipe/client' # Specify the directory containing the package.json
+          working-directory: './client' # Specify the directory containing the package.json
 
       - name: Build project
         run: npm run build
-        working-directory: './SecureSnipe/client' # Ensure npm run build is executed in the correct directory
+        working-directory: './client' # Ensure npm run build is executed in the correct directory
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: './SecureSnipe/client/dist' 
+          path: './client/dist' 
 
   deploy:
     name: Deploy
